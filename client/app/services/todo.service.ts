@@ -14,6 +14,7 @@ export class TodoService {
             {
                 id: '1',
                 task: "Item 1",
+                isCompleted: true,
                 category: 'Items',
                 statuses: [{
                                         description: "Created",
@@ -63,12 +64,12 @@ export class TodoService {
     updateTodo(todo: TODO) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this._http.put(this.url + '/api/v1/todo/'+todo._id, JSON.stringify(todo), {headers: headers})
+        return this._http.put(this.url + '/api/v1/todo/'+todo.id, JSON.stringify(todo), {headers: headers})
             .map(res => res.json());
     }
 
     deleteTodo(id: number) {
-        return this._http.delete(this.url + '/todo/'+id)
+        return this._http.delete(this.url + '/todo/'+ id)
             .map(res => res.json());
     }
 }

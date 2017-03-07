@@ -79,3 +79,13 @@ input[type="checkbox"] + span {
 input[type="checkbox"]:checked + span {
     background:url(checkbox-filled.svg) left top no-repeat;
 }
+
+
+.btns input{
+    margin-right:5px;
+    margin-bottom:3px;
+}
+
+.todo .checked {
+    text-decoration: line-through;
+  }
