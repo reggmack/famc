@@ -1,0 +1,18 @@
+<div>
+<h1>TODO List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Task</th>
+            <th>Category</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let items of ttodo">
+        <td>{{ items.statuses[0].description }}</td>
+        <td>{{ items.task }}</td>
+        <td>{{ items.category }}</td>
+    </tbody>
+</table>
+</div>
