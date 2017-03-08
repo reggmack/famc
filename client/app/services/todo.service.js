@@ -19,22 +19,54 @@ var TodoService = (function () {
         this.todo = [
             {
                 id: '1',
-                task: "Pick up groceries",
-                isCompleted: false,
+                task: "Item 1",
                 category: 'Items',
-                statuses: [{
-                        description: "Created",
-                        date: "2017-02-02T18:24:03+00:00"
-                    },
-                    {
-                        description: "Completed",
-                        date: "2017-02-02T20:24:03+00:00"
-                    }
-                ]
+                isComplete: true,
+                statuses: {
+                    description: "Completed",
+                    date: "2017-02-02T20:24:03+00:00"
+                }
+            },
+            {
+                id: '2',
+                task: "Get Milk",
+                category: 'Grocery List',
+                statuses: {
+                    description: "Created",
+                    date: "2017-03-06T18:24:03+00:00"
+                }
+            }, {
+                id: '3',
+                task: "Get Eggs",
+                category: 'Grocery List',
+                statuses: {
+                    description: "Created",
+                    date: "2017-03-06T18:24:03+00:00"
+                }
+            },
+            {
+                id: '4',
+                task: "Buy Plane Tickets",
+                category: 'General',
+                statuses: {
+                    description: "Created",
+                    date: "2017-03-07T18:24:03+00:00"
+                }
             }
+        ];
+        this.categories = [
+            { id: 1, text: 'General' },
+            { id: 2, text: 'Grocery List' },
+            { id: 3, text: 'Items' },
         ];
         console.log('TODO Service Started.');
     }
+    ;
+    TodoService.prototype.getCategories = function () {
+        return this.categories;
+        // return this._http.get(this.url + '/todos/categories')
+        // .map(res => res.json());
+    };
     TodoService.prototype.getTodos = function () {
         console.log('Return TODO.');
         return this.todo;
@@ -42,28 +74,36 @@ var TodoService = (function () {
         // .map(res => res.json());
     };
     TodoService.prototype.todoByCat = function (cat) {
-        console.log('Return TODO.');
-        return this._http.get(this.url + '/todos/' + cat)
-            .map(function (res) { return res.json(); });
+        console.log('Return TODO by category.');
+        // return this._http.get(this.url + '/todos/' + cat)
+        //     .map(res => res.json());
     };
     TodoService.prototype.todoByStatus = function (status) {
-        console.log('Return TODO.');
-        return this._http.get(this.url + '/todos/' + status)
-            .map(function (res) { return res.json(); });
+        console.log('Return TODO by status.');
+        // return this._http.get(this.url + '/todos/' + status)
+        //     .map(res => res.json());
     };
-    TodoService.prototype.saveTodo = function (newTodo) {
-        console.log('Save TODO.');
-        return this.todo;
+    TodoService.prototype.saveTodo = function (task, category) {
+        console.log('Saving TODO.');
+        console.log(task, category);
+        // var headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        // return this._http.post(this.url + '/todo', {task:task, category:category}, { headers: headers })
+        //     .map(res => res.json());
     };
     TodoService.prototype.updateTodo = function (todo) {
-        var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/json');
-        return this._http.put(this.url + '/api/v1/todo/' + todo.id, JSON.stringify(todo), { headers: headers })
-            .map(function (res) { return res.json(); });
+        console.log('Updating TODO');
+        console.log(todo);
+        // var headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        // return this._http.put(this.url + '/todo/' + todo.id, { category: todo.category, task: todo.task, statuses: [todo.statuses] }, { headers: headers })
+        //     .map(res => res.json());
     };
     TodoService.prototype.deleteTodo = function (id) {
-        return this._http.delete(this.url + '/todo/' + id)
-            .map(function (res) { return res.json(); });
+        console.log('Deleting TODO');
+        console.log(id);
+        // return this._http.delete(this.url + '/todo/' + id)
+        //     .map(res => res.json());
     };
     return TodoService;
 }());

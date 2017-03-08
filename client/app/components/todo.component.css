@@ -1,0 +1,22 @@
+.task-input {
+    border-radius: 1em;
+    margin-left: 20px;
+}
+
+button {
+    border-radius: .5em;
+}
+
+#example tbody tr {
+    border: solid #453 1px;
+    padding: 3px;
+}
+
+#example tr button {
+    margin-bottom: 5px;
+}
+
+
+#example tr input {
+    margin: 25px;
+}
