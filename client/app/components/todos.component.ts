@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../services/todo.service';
 import { TODO } from '../model/todo';
 
-
 @Component({
     moduleId: module.id,
-    selector: 'todo',
+    selector: 'todos',
     templateUrl: 'todos.component.html',
     providers: [TODO]
 })
@@ -13,11 +12,11 @@ export class TODOComponent implements OnInit {
     todo: TODO[];
     ttodo: any[];
 
-    constructor(private _todo: TodoService) { }
+    constructor(private _todoService: TodoService) { }
 
     ngOnInit() {
         // for mock data
-         this.ttodo = this._todo.getTodos();
+         this.ttodo = this._todoService.getTodos();
         // this._todo.getTodos().subscribe(todo => {
         //     this.todo = todo;
         // });
@@ -33,14 +32,14 @@ export class TODOComponent implements OnInit {
       var result;
       var newTodo = {
         text: todoText.value,
-        isCompleted: false,
+        isCompleted: false
       };
       
       result = this._todoService.saveTodo(newTodo);
-      result.subscribe(x => {
-        this.todos.push(newTodo);
+      
+        this.ttodo.push(newTodo);
         todoText.value = '';
-      });
+     
   }
   
   setEditState(todo, state){
@@ -58,7 +57,7 @@ export class TODOComponent implements OnInit {
       isCompleted: !todo.isCompleted
     };
     
-    this._todoService.updateTodo(_todo)
+    this._todoService.updateTodo(todo)
       .subscribe(data => {
         todo.isCompleted = !todo.isCompleted;
       });
@@ -73,7 +72,7 @@ export class TODOComponent implements OnInit {
           isCompleted: todo.isCompleted
         };
         
-        this._todoService.updateTodo(_todo)
+        this._todoService.updateTodo(todo)
           .subscribe(data => {
             this.setEditState(todo, false);
           })
@@ -87,7 +86,7 @@ export class TODOComponent implements OnInit {
       .subscribe(data => {
         if(data.n == 1){
           for(var i = 0; i < todos.length; i++){
-            if(todos[i]._id == todo._id){
+            if(todos[i].id == todo._id){
               todos.splice(i, 1);
             }
           }

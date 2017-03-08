@@ -9,12 +9,12 @@ import { TODO } from '../model/todo';
 export class TodoService {
     private url = 'https://api.example.com';
 
-
+   ttodo: any[];
    todo = [
             {
                 id: '1',
-                task: "Item 1",
-                isCompleted: true,
+                task: "Pick up groceries",
+                isCompleted: false,
                 category: 'Items',
                 statuses: [{
                                         description: "Created",
@@ -54,11 +54,9 @@ export class TodoService {
             .map(res => res.json());
     }
 
-    saveTodo(todo: TODO) {
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        return this._http.post(this.url + '/api/v1/todo', JSON.stringify(todo), {headers: headers})
-            .map(res => res.json());
+    saveTodo(newTodo) {
+        console.log('Save TODO.');
+        return this.todo;
     }
 
     updateTodo(todo: TODO) {
@@ -72,4 +70,5 @@ export class TodoService {
         return this._http.delete(this.url + '/todo/'+ id)
             .map(res => res.json());
     }
+
 }

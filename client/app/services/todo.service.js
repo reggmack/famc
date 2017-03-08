@@ -19,7 +19,8 @@ var TodoService = (function () {
         this.todo = [
             {
                 id: '1',
-                task: "Item 1",
+                task: "Pick up groceries",
+                isCompleted: false,
                 category: 'Items',
                 statuses: [{
                         description: "Created",
@@ -50,16 +51,14 @@ var TodoService = (function () {
         return this._http.get(this.url + '/todos/' + status)
             .map(function (res) { return res.json(); });
     };
-    TodoService.prototype.saveTodo = function (todo) {
-        var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/json');
-        return this._http.post(this.url + '/api/v1/todo', JSON.stringify(todo), { headers: headers })
-            .map(function (res) { return res.json(); });
+    TodoService.prototype.saveTodo = function (newTodo) {
+        console.log('Save TODO.');
+        return this.todo;
     };
     TodoService.prototype.updateTodo = function (todo) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this._http.put(this.url + '/api/v1/todo/' + todo._id, JSON.stringify(todo), { headers: headers })
+        return this._http.put(this.url + '/api/v1/todo/' + todo.id, JSON.stringify(todo), { headers: headers })
             .map(function (res) { return res.json(); });
     };
     TodoService.prototype.deleteTodo = function (id) {
