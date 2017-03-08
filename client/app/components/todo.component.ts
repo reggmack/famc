@@ -56,6 +56,4 @@ export class TODOComponent implements OnInit {
         this.todo.isComplete = this.todo.isComplete==true?true:false;
         console.log(todo);
     }
-
-
 }

@@ -19,8 +19,8 @@ var TodoService = (function () {
         this.todo = [
             {
                 id: '1',
-                task: "Item 1",
-                category: 'Items',
+                task: "Master Angular 2",
+                category: 'Education',
                 isComplete: true,
                 statuses: {
                     description: "Completed",
@@ -57,7 +57,11 @@ var TodoService = (function () {
         this.categories = [
             { id: 1, text: 'General' },
             { id: 2, text: 'Grocery List' },
-            { id: 3, text: 'Items' },
+            { id: 3, text: 'Education' },
+            { id: 4, text: 'Business' },
+            { id: 5, text: 'Travel' },
+            { id: 6, text: 'Personal' },
+            { id: 7, text: 'Shopping' },
         ];
         console.log('TODO Service Started.');
     }

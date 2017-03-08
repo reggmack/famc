@@ -1,5 +1,5 @@
 .task-input {
-    border-radius: 1em;
+    border-radius: 7px;
     margin-left: 20px;
 }
 
@@ -7,16 +7,33 @@ button {
     border-radius: .5em;
 }
 
-#example tbody tr {
-    border: solid #453 1px;
-    padding: 3px;
+.todoRow {
+    margin-bottom: 7px;
+    border-bottom: 1px dotted gainsboro;
+    padding:7px 0;
 }
 
-#example tr button {
-    margin-bottom: 5px;
+.listContainer {
+    background-color: white;
+    padding: 0px 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
 }
 
+.enterTask {
+    margin: 35px 0 21px 0;
+}
 
-#example tr input {
-    margin: 25px;
+.taskHdr {
+    color: white;
+}
+
+.taskHdrRow {
+    background-color: #014711;
+    padding: 7px 0;
+    margin-bottom: 10px;
+}
+
+.note {
+    margin-top: 28px;
 }

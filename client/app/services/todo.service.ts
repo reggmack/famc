@@ -4,17 +4,15 @@ import 'rxjs/add/operator/map';
 
 import { TODO } from '../model/todo';
 
-
 @Injectable()
 export class TodoService {
     private url = 'https://api.example.com';
 
-
     private todo = [
         {
             id: '1',
-            task: "Item 1",
-            category: 'Items',
+            task: "Master Angular 2",
+            category: 'Education',
             isComplete: true,
             statuses: {
                 description: "Completed",
@@ -52,7 +50,11 @@ export class TodoService {
     private categories = [
         {id:1, text:'General'},
         {id:2, text:'Grocery List'},
-        {id:3, text:'Items'},
+        {id:3, text:'Education'},
+        {id:4, text:'Business'},
+        {id:5, text:'Travel'},
+        {id:6, text:'Personal'},
+        {id:7, text:'Shopping'},
     ];;
 
 

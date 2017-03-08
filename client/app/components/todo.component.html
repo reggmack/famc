@@ -1,75 +1,70 @@
 <div>
-    <h1>TODO List</h1>
-    <div class="col-md-12">
+    <img src="../app/components/logo-famc-horz.png" width="380" alt=""/>
+    <div class="row enterTask">
         <div class="col-md-6">
             <div class="form-group">
-                <label>Category</label>
-                <select class=" form-control task-input" name="category">
-                    <option *ngFor="let cat of categories" [value]="cat.id" [selected]="category===cat.text">{{cat.text}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Task</label>
+                <label>Enter Task</label>
                 <input type='text' [(ngModel)]='task' class=" form-control task-input">
             </div>
+        </div>
+
+        <div class="col-md-6">
             <div class="form-group">
-                <button class="btn btn-success" (click)="save()">Save</button>
+            <label>Choose Category</label>
+            <select class=" form-control task-input" name="category">
+            <option *ngFor="let cat of categories" [value]="cat.id" [selected]="category===cat.text">{{cat.text}}</option>
+            </select>
             </div>
+        </div>
 
-
+        <div class="row">
+             <div class="form-group">
+                <button class="btn btn-success" (click)="save()">Create Task</button>
+            </div>
         </div>
     </div>
-    <!--<table id="example" class="display" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Status</th>
-                <th>Task</th>
-                <th>Category</th>
-                <th></th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let items of todo">
-                <td><input type="checkbox" 
-                           [attr.checked]="items.isComplete?true:null"
-                           id="{{items.id}}"
-                           (click)="toggle(items)"></td>
-                <td>{{ items.statuses.description }}</td>
-                <td>{{ items.task }}</td>
-                <td>{{ items.category }}</td>
-                <td>
-                    <button class="btn btn-warning" (click)="update(items)">Edit</button>
-                    <button class="btn btn-danger" (click)="delete(items.id)">Delete</button>
-                </td>
-        </tbody>
-    </table>-->
 
+        <div class="listContainer">
+            <div class="row taskHdrRow">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2 taskHdr">
+                        Status
+                    </div>     
+                    <div class="col-md-3 taskHdr">
+                        Task
+                    </div> 
+                    <div class="col-md-3 taskHdr">
+                        Category
+                    </div> 
+                    <div class="col-md-3 btns"></div>  
+                </div>
 
-    
-        <div *ngFor="let items of todo" class="listContainer">
-            <div class="row todoRow">
-                <div class="col-md-1">
-                    <input type="checkbox" 
-                                [attr.checked]="items.isComplete?true:null"
-                                id="{{items.id}}"
-                                (click)="toggle(items)">
-                </div>    
-                <div class="col-md-3">
-                    {{ items.statuses.description }}
-                </div> 
+            <div *ngFor="let items of todo">
+                <div class="row todoRow">
+                    <div class="col-md-1">
+                        <input type="checkbox" [attr.checked]="items.isComplete?true:null" id="{{items.id}}" (click)="toggle(items)">
+                    </div>    
+                    <div class="col-md-2">
+                        {{ items.statuses.description }}
+                    </div> 
 
-                <div class="col-md-5">
-                    {{ items.task }}
-                </div> 
+                    <div class="col-md-3">
+                        {{ items.task }}
+                    </div>
 
+                    <div class="col-md-3">
+                        {{ items.category }}
+                    </div>  
 
-                <div class="col-md-3 btns">
-                    <button class="btn btn-warning" (click)="update(items)">Edit</button>
-                            <button class="btn btn-danger" (click)="delete(items.id)">Delete</button>
-                </div>  
-            </div>
+                    <div class="col-md-3 btns">
+                        <button class="btn btn-warning" (click)="update(items)">Edit</button>
+                        <button class="btn btn-danger" (click)="delete(items.id)">Delete</button>
+                    </div>  
+                </div>
+            </div>       
         </div>
-    
 
-
+        <div class="alert alert-danger note" role="alert">
+            <strong>Oh snap!</strong> The app is currently displaying hard-coded mock data. In the service you will find the commented out code necessary to use the API. You can check the functionality out by viewing the logs in the console.
+        </div>
 </div>
